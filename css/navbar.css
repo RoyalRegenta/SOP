@@ -1,0 +1,315 @@
+/* ===================================
+   Navigation Bar Styles
+   SOP Portal - Royal Orchid & Regenta
+   =================================== */
+
+/* Header Container */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Top Bar - Logo + User Actions */
+.top-bar {
+  background: linear-gradient(135deg, var(--primary-purple-dark) 0%, var(--primary-purple) 50%, var(--primary-purple-light) 100%);
+  padding: var(--space-2) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 55px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.logo-section img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.1);
+  transition: transform var(--transition-base);
+}
+
+.logo-section img:hover {
+  transform: scale(1.05);
+}
+
+.logo-divider {
+  width: 1px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.user-actions a,
+.user-actions button {
+  color: var(--white);
+  font-family: var(--font-nav);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.user-actions a:hover,
+.user-actions button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.user-actions .icon {
+  font-size: var(--text-base);
+}
+
+/* Primary Navigation */
+.primary-nav {
+  background: var(--primary-purple);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 var(--space-4);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--white);
+  font-family: var(--font-nav);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  padding: var(--space-3) var(--space-4);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transition: width var(--transition-base);
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 70%;
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link .dropdown-arrow {
+  font-size: 0.65em;
+  transition: transform var(--transition-fast);
+  margin-left: 2px;
+}
+
+.nav-item:hover .dropdown-arrow,
+.nav-item.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menus */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: var(--white);
+  box-shadow: var(--shadow-xl);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition: all var(--transition-base);
+  z-index: var(--z-dropdown);
+  overflow: hidden;
+}
+
+.nav-item:hover .dropdown-menu,
+.nav-item.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: var(--space-3) var(--space-5);
+  color: var(--gray-700);
+  font-family: var(--font-nav);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  transition: all var(--transition-fast);
+  border-left: 3px solid transparent;
+}
+
+.dropdown-menu a:hover {
+  background: var(--accent-warm);
+  color: var(--primary-purple);
+  border-left-color: var(--primary-purple);
+  padding-left: calc(var(--space-5) + 4px);
+}
+
+.dropdown-menu .dropdown-divider {
+  height: 1px;
+  background: var(--gray-200);
+  margin: var(--space-1) 0;
+}
+
+/* Secondary Navigation */
+.secondary-nav {
+  background: var(--primary-purple-light);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.secondary-nav .nav-list {
+  padding: 0 var(--space-4);
+}
+
+.secondary-nav .nav-link {
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-4);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  padding: var(--space-2);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===================================
+   Responsive Navigation
+   =================================== */
+@media (max-width: 1024px) {
+  .nav-link {
+    font-size: 0.8rem;
+    padding: var(--space-2) var(--space-3);
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .top-bar {
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .logo-section img {
+    height: 30px;
+  }
+
+  .user-actions a span,
+  .user-actions button span {
+    display: none;
+  }
+
+  .primary-nav .nav-container {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .primary-nav .nav-container.open {
+    display: flex;
+    animation: fadeInDown 0.3s ease;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-link {
+    padding: var(--space-3) var(--space-5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: var(--text-sm);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow), opacity var(--transition-base);
+  }
+
+  .nav-item.open .dropdown-menu {
+    max-height: 500px;
+  }
+
+  .dropdown-menu a {
+    color: rgba(255, 255, 255, 0.9);
+    padding-left: var(--space-10);
+    border-left: none;
+  }
+
+  .dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-left: none;
+    padding-left: var(--space-10);
+  }
+
+  .secondary-nav .nav-list {
+    padding: 0;
+  }
+}

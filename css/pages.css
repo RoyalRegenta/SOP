@@ -1,0 +1,245 @@
+/* ===================================
+   Page-Specific Styles
+   SOP Portal - Royal Orchid & Regenta
+   =================================== */
+
+/* ===================================
+   Home Page - Mission Section
+   =================================== */
+.main-content {
+  min-height: calc(100vh - 160px);
+}
+
+/* Hero / Mission Section */
+.mission-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-12) var(--space-4);
+  background: linear-gradient(145deg, var(--off-white) 0%, var(--gray-100) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 26, 143, 0.04) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.mission-wrapper {
+  display: flex;
+  gap: var(--space-12);
+  max-width: 1100px;
+  width: 100%;
+  align-items: flex-start;
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Mission Card */
+.mission-card {
+  background: var(--accent-cream);
+  padding: var(--space-10) var(--space-12);
+  max-width: 550px;
+  flex: 1;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-sm);
+}
+
+.mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-purple), var(--accent-gold));
+}
+
+.mission-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl);
+  font-weight: 400;
+  color: var(--primary-purple-light);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-8);
+  line-height: 1.1;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+
+.mission-item {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.mission-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.mission-item h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: var(--space-2);
+}
+
+.mission-item p {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* Chairman Photo */
+.chairman-section {
+  flex: 0 0 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.4s forwards;
+}
+
+.chairman-photo-wrapper {
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+.chairman-photo-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--primary-purple));
+  z-index: 1;
+}
+
+.chairman-photo-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.chairman-photo-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+.chairman-name {
+  text-align: center;
+  margin-top: var(--space-4);
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.chairman-title {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  margin-top: var(--space-1);
+}
+
+/* ===================================
+   Footer
+   =================================== */
+.site-footer {
+  background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
+  color: var(--gray-400);
+  padding: var(--space-8) var(--space-4);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer-content p {
+  font-size: var(--text-sm);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.footer-links a {
+  color: var(--gray-400);
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--accent-gold);
+}
+
+/* ===================================
+   Responsive - Pages
+   =================================== */
+@media (max-width: 900px) {
+  .mission-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mission-card {
+    max-width: 100%;
+    padding: var(--space-8);
+  }
+
+  .chairman-section {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .mission-title {
+    font-size: var(--text-4xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-section {
+    padding: var(--space-6) var(--space-3);
+  }
+
+  .mission-card {
+    padding: var(--space-6);
+  }
+
+  .mission-title {
+    font-size: var(--text-3xl);
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}

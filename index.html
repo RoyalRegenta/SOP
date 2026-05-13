@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Royal Orchid & Regenta Hotels - Standard Operating Procedures Portal. Access SOPs, Brand Standards, Checklists, Training materials and more.">
+  <meta name="keywords" content="Royal Orchid Hotels, Regenta Hotels, SOP, Standard Operating Procedures, Hotel Management">
+  <title>SOP Portal | Royal Orchid & Regenta Hotels</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/royal-orchid-logo.png">
+</head>
+<body>
+
+  <!-- ===================================
+       Site Header & Navigation
+       =================================== -->
+  <header class="site-header" id="siteHeader">
+
+    <!-- Top Bar: Logos + User Actions -->
+    <div class="top-bar">
+      <div class="logo-section">
+        <a href="index.html" title="Royal Orchid Hotels">
+          <img src="assets/images/royal-orchid-logo.png" alt="Royal Orchid Hotels Logo" id="logoRoyalOrchid">
+        </a>
+        <div class="logo-divider"></div>
+        <a href="index.html" title="Regenta Hotels">
+          <img src="assets/images/regenta-logo.png" alt="Regenta Hotels Logo" id="logoRegenta">
+        </a>
+      </div>
+
+      <div class="user-actions">
+        <a href="#" id="changePasswordBtn" title="Change Password">
+          <span class="icon">👤</span>
+          <span>Change Password</span>
+        </a>
+        <a href="#" id="logoutBtn" title="Logout">
+          <span class="icon">🚪</span>
+          <span>Logout</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Primary Navigation -->
+    <nav class="primary-nav" id="primaryNav" aria-label="Main Navigation">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+        <span class="hamburger-icon">☰</span>
+      </button>
+
+      <div class="nav-container" id="navContainer">
+        <ul class="nav-list">
+
+          <!-- Home -->
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active" id="navHome">Home</a>
+          </li>
+
+          <!-- SOP Dropdown -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="navSOP">
+              SOP <span class="dropdown-arrow">▾</span>
+            </a>
+            <div class="dropdown-menu" id="dropdownSOP">
+              <a href="pages/sop.html?cat=front-office">Front Office</a>
+              <a href="pages/sop.html?cat=housekeeping">Housekeeping</a>
+              <a href="pages/sop.html?cat=food-beverage">Food & Beverage</a>
+              <a href="pages/sop.html?cat=kitchen">Kitchen</a>
+              <a href="pages/sop.html?cat=engineering">Engineering</a>
+              <a href="pages/sop.html?cat=security">Security</a>
+              <a href="pages/sop.html?cat=hr">Human Resources</a>
+              <a href="pages/sop.html?cat=finance">Finance</a>
+              <a href="pages/sop.html?cat=sales">Sales & Marketing</a>
+              <a href="pages/sop.html?cat=it">IT</a>
+            </div>
+          </li>
+
+          <!-- Brand Standard Dropdown -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="navBrandStd">
+              Brand Standard <span class="dropdown-arrow">▾</span>
+            </a>
+            <div class="dropdown-menu" id="dropdownBrandStd">
+              <a href="pages/brand-standard.html?cat=royal-orchid">Royal Orchid Hotels</a>
+              <a href="pages/brand-standard.html?cat=regenta">Regenta Hotels</a>
+              <a href="pages/brand-standard.html?cat=regenta-central">Regenta Central</a>
+              <a href="pages/brand-standard.html?cat=regenta-place">Regenta Place</a>
+              <a href="pages/brand-standard.html?cat=regenta-inn">Regenta Inn</a>
+            </div>
+          </li>
+
+          <!-- Checklist Dropdown -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="navChecklist">
+              Checklist <span class="dropdown-arrow">▾</span>
+            </a>
+            <div class="dropdown-menu" id="dropdownChecklist">
+              <a href="pages/checklist.html?cat=daily">Daily Checklist</a>
+              <a href="pages/checklist.html?cat=weekly">Weekly Checklist</a>
+              <a href="pages/checklist.html?cat=monthly">Monthly Checklist</a>
+              <a href="pages/checklist.html?cat=audit">Audit Checklist</a>
+            </div>
+          </li>
+
+          <!-- BOQ Dropdown -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="navBOQ">
+              BOQ <span class="dropdown-arrow">▾</span>
+            </a>
+            <div class="dropdown-menu" id="dropdownBOQ">
+              <a href="pages/boq.html?cat=rooms">Rooms</a>
+              <a href="pages/boq.html?cat=restaurant">Restaurant</a>
+              <a href="pages/boq.html?cat=kitchen">Kitchen</a>
+              <a href="pages/boq.html?cat=banquet">Banquet</a>
+              <a href="pages/boq.html?cat=public-area">Public Area</a>
+            </div>
+          </li>
+
+          <!-- Recipes -->
+          <li class="nav-item">
+            <a href="pages/recipes.html" class="nav-link" id="navRecipes">Recipes</a>
+          </li>
+
+          <!-- Gallery -->
+          <li class="nav-item">
+            <a href="pages/gallery.html" class="nav-link" id="navGallery">Gallery</a>
+          </li>
+
+          <!-- Videos Dropdown -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="navVideos">
+              Videos <span class="dropdown-arrow">▾</span>
+            </a>
+            <div class="dropdown-menu" id="dropdownVideos">
+              <a href="pages/videos.html?cat=training">Training Videos</a>
+              <a href="pages/videos.html?cat=brand">Brand Videos</a>
+              <a href="pages/videos.html?cat=events">Event Videos</a>
+            </div>
+          </li>
+
+          <!-- Training Dropdown -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="navTraining">
+              Training <span class="dropdown-arrow">▾</span>
+            </a>
+            <div class="dropdown-menu" id="dropdownTraining">
+              <a href="pages/training.html?cat=induction">Induction</a>
+              <a href="pages/training.html?cat=department">Department Training</a>
+              <a href="pages/training.html?cat=soft-skills">Soft Skills</a>
+              <a href="pages/training.html?cat=compliance">Compliance</a>
+              <a href="pages/training.html?cat=fire-safety">Fire & Safety</a>
+            </div>
+          </li>
+
+          <!-- Presentation -->
+          <li class="nav-item">
+            <a href="pages/presentation.html" class="nav-link" id="navPresentation">Presentation</a>
+          </li>
+
+          <!-- Careers Dropdown -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="navCareers">
+              Careers <span class="dropdown-arrow">▾</span>
+            </a>
+            <div class="dropdown-menu" id="dropdownCareers">
+              <a href="pages/careers.html?cat=openings">Current Openings</a>
+              <a href="pages/careers.html?cat=internships">Internships</a>
+              <a href="pages/careers.html?cat=mtp">Management Trainee</a>
+            </div>
+          </li>
+
+          <!-- Others -->
+          <li class="nav-item">
+            <a href="pages/others.html" class="nav-link" id="navOthers">Others</a>
+          </li>
+
+          <!-- User -->
+          <li class="nav-item">
+            <a href="pages/user.html" class="nav-link" id="navUser">User</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Secondary Navigation -->
+    <nav class="secondary-nav" id="secondaryNav" aria-label="Secondary Navigation">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="pages/cluster.html" class="nav-link" id="navCluster">Cluster</a>
+        </li>
+        <li class="nav-item">
+          <a href="pages/log-report.html" class="nav-link" id="navLogReport">Log Report</a>
+        </li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <!-- ===================================
+       Main Content - Mission Section
+       =================================== -->
+  <main class="main-content" id="mainContent">
+
+    <section class="mission-section" id="missionSection">
+      <div class="mission-wrapper">
+
+        <!-- Mission Statement Card -->
+        <div class="mission-card" id="missionCard">
+          <h1 class="mission-title">MISSION</h1>
+
+          <div class="mission-item stagger-1 animate-fade-in-up" style="opacity:0;">
+            <h3>To Our Guests</h3>
+            <p>To provide memorable experiences and deliver top quality services with warmth.</p>
+          </div>
+
+          <div class="mission-item stagger-2 animate-fade-in-up" style="opacity:0;">
+            <h3>To Our Employees</h3>
+            <p>To provide all employees with an equal opportunity, a fair package of employment and a conducive working environment.</p>
+          </div>
+
+          <div class="mission-item stagger-3 animate-fade-in-up" style="opacity:0;">
+            <h3>To Our Partners &amp; Stakeholders</h3>
+            <p>To ensure that we exercise our expertise to set up excellent quality and efficient hotels at the best possible cost to optimize return on investments for our partners.</p>
+          </div>
+        </div>
+
+        <!-- Chairman Photo -->
+        <div class="chairman-section" id="chairmanSection">
+          <div class="chairman-photo-wrapper">
+            <img src="assets/images/chairman.png" alt="Chairman - Royal Orchid & Regenta Hotels" id="chairmanPhoto">
+          </div>
+          <p class="chairman-name">Mr. Chender Baljee</p>
+          <p class="chairman-title">Chairman & Managing Director</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================
+       Footer
+       =================================== -->
+  <footer class="site-footer" id="siteFooter">
+    <div class="footer-content">
+      <p>&copy; 2026 Royal Orchid & Regenta Hotels. All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================
+       Change Password Modal
+       =================================== -->
+  <div class="modal-overlay" id="changePasswordModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Change Password</h2>
+        <button class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <form>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="currentPassword">Current Password</label>
+            <input type="password" class="form-input" id="currentPassword" required placeholder="Enter current password">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="newPassword">New Password</label>
+            <input type="password" class="form-input" id="newPassword" required placeholder="Enter new password">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="confirmPassword">Confirm New Password</label>
+            <input type="password" class="form-input" id="confirmPassword" required placeholder="Confirm new password">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Update Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/navbar.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
