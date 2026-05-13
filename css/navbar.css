@@ -28,7 +28,8 @@
 }
 
 .logo-section img {
-  height: 60px;
+  height: 130px;
+  max-width: 400px;
   width: auto;
   object-fit: contain;
   filter: brightness(1.1);
