@@ -56,7 +56,7 @@
 .user-actions button {
   color: var(--white);
   font-family: var(--font-nav);
-  font-size: var(--text-sm);
+  font-size: var(--text-lg);
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -106,7 +106,7 @@
   gap: var(--space-1);
   color: var(--white);
   font-family: var(--font-nav);
-  font-size: var(--text-sm);
+  font-size: var(--text-xl);
   font-weight: 500;
   padding: var(--space-3) var(--space-4);
   transition: all var(--transition-fast);
@@ -179,7 +179,7 @@
   padding: var(--space-3) var(--space-5);
   color: var(--gray-700);
   font-family: var(--font-nav);
-  font-size: var(--text-sm);
+  font-size: var(--text-lg);
   font-weight: 400;
   transition: all var(--transition-fast);
   border-left: 3px solid transparent;
@@ -209,7 +209,7 @@
 }
 
 .secondary-nav .nav-link {
-  font-size: var(--text-sm);
+  font-size: var(--text-lg);
   padding: var(--space-2) var(--space-4);
 }
 
