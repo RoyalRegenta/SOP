@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOP Gallery | Royal Orchid & Regenta Hotels</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+
+  <style>
+    /* Gallery specific styles */
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-10) var(--space-4);
+      min-height: calc(100vh - 160px);
+      background-color: var(--white);
+    }
+
+    .folder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-8);
+      justify-items: center;
+      margin-top: var(--space-6);
+    }
+
+    .folder-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      text-align: center;
+      transition: transform var(--transition-fast);
+      width: 150px;
+    }
+
+    .folder-item:hover {
+      transform: translateY(-5px);
+    }
+
+    /* 3D Folder Graphic */
+    .folder-icon {
+      position: relative;
+      width: 120px;
+      height: 100px;
+      margin-bottom: var(--space-3);
+      perspective: 500px;
+    }
+
+    .folder-back {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 90%;
+      background-color: #A0B5C0; /* Greyish blue folder back */
+      border-radius: 5px 5px 0 0;
+      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+    }
+
+    .folder-tab {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 40%;
+      height: 20px;
+      background-color: #A0B5C0;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .folder-paper {
+      position: absolute;
+      bottom: 5px;
+      left: 10%;
+      width: 80%;
+      height: 95%;
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      border: 1px solid #ddd;
+      overflow: hidden;
+      /* Image inside the folder */
+      background-image: url('https://images.unsplash.com/photo-1542314831-c6a4203251f8?q=80&w=200&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .folder-front {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 80%;
+      background-color: #7D97A5; /* Darker greyish blue folder front */
+      border-radius: 5px 5px 0 0;
+      transform-origin: bottom;
+      transform: rotateX(20deg);
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    /* A little dark flap on the right side as seen in screenshot */
+    .folder-flap {
+      position: absolute;
+      right: -5px;
+      bottom: 10px;
+      width: 10px;
+      height: 40px;
+      background-color: #2c3e50;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .folder-item:hover .folder-front {
+      transform: rotateX(35deg);
+    }
+    
+    .folder-item:hover .folder-paper {
+      transform: translateY(-10px);
+    }
+
+    .folder-name {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--gray-700);
+      font-weight: 500;
+      word-wrap: break-word;
+    }
+
+    .page-title {
+      font-family: var(--font-heading);
+      color: var(--primary-purple);
+      border-bottom: 2px solid var(--accent-gold);
+      padding-bottom: var(--space-2);
+      margin-bottom: var(--space-6);
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Header & Navigation (Duplicated for subpage) -->
+  <header class="site-header" id="siteHeader">
+    <div class="top-bar">
+      <div class="logo-section">
+        <a href="../index.html" title="Royal Orchid & Regenta Hotels">
+          <img src="../assets/images/logo-combined.png" alt="Royal Orchid & Regenta Hotels Logo" id="logoCombined">
+        </a>
+      </div>
+      <div class="user-actions">
+        <a href="#" id="changePasswordBtn" title="Change Password">
+          <span class="icon">👤</span><span>Change Password</span>
+        </a>
+        <a href="#" id="logoutBtn" title="Logout">
+          <span class="icon">🚪</span><span>Logout</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Primary Navigation -->
+    <nav class="primary-nav" id="primaryNav">
+      <div class="nav-container" id="navContainer">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link" id="navHome">Home</a>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link active" id="navSOP">
+              SOP <span class="dropdown-arrow">▾</span>
+            </a>
+            <div class="dropdown-menu" id="dropdownSOP">
+              <a href="sop.html?cat=front-office">Front Office</a>
+              <a href="sop.html?cat=house-keeping">House Keeping</a>
+              <a href="sop.html?cat=information-technology">Information Technology</a>
+              <a href="sop.html?cat=finance">Finance</a>
+              <a href="sop.html?cat=fnb-production">FNB Production</a>
+              <a href="sop.html?cat=fnb-service">FNB Service</a>
+              <a href="sop.html?cat=human-resource">Human Resource</a>
+              <a href="sop.html?cat=sales-marketing">Sales & Marketing</a>
+              <a href="sop.html?cat=engineering">Engineering</a>
+              <a href="sop.html?cat=projects">Projects</a>
+              <a href="sop.html?cat=security">Security</a>
+              <a href="sop.html?cat=purchase">Purchase</a>
+            </div>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="navBrandStd">
+              Brand Standard <span class="dropdown-arrow">▾</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="#">Royal Orchid Hotels</a>
+              <a href="#">Regenta Hotels</a>
+            </div>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="navChecklist">
+              Checklist <span class="dropdown-arrow">▾</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="#">Daily Checklist</a>
+              <a href="#">Weekly Checklist</a>
+            </div>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="navBOQ">BOQ <span class="dropdown-arrow">▾</span></a>
+            <div class="dropdown-menu"><a href="#">Rooms</a></div>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link">Recipes</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Gallery</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Videos <span class="dropdown-arrow">▾</span></a>
+            <div class="dropdown-menu"><a href="#">Training Videos</a></div>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Training <span class="dropdown-arrow">▾</span></a>
+            <div class="dropdown-menu"><a href="#">Induction</a></div>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link">Presentation</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Careers <span class="dropdown-arrow">▾</span></a>
+            <div class="dropdown-menu"><a href="#">Current Openings</a></div>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link">Others</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">User</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Secondary Navigation -->
+    <nav class="secondary-nav" id="secondaryNav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#" class="nav-link">Cluster</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Log Report</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content - SOP Gallery -->
+  <main class="gallery-container">
+    <h2 class="page-title" id="categoryTitle">Front Office SOPs</h2>
+    
+    <div class="folder-grid" id="folderGrid">
+      <!-- Folder 1 -->
+      <div class="folder-item">
+        <div class="folder-icon">
+          <div class="folder-tab"></div>
+          <div class="folder-back"></div>
+          <div class="folder-paper"></div>
+          <div class="folder-front">
+            <div class="folder-flap"></div>
+          </div>
+        </div>
+        <div class="folder-name">Covid_Handbook</div>
+      </div>
+
+      <!-- Folder 2 -->
+      <div class="folder-item">
+        <div class="folder-icon">
+          <div class="folder-tab"></div>
+          <div class="folder-back"></div>
+          <div class="folder-paper"></div>
+          <div class="folder-front">
+            <div class="folder-flap"></div>
+          </div>
+        </div>
+        <div class="folder-name">FOM SOP</div>
+      </div>
+
+      <!-- Folder 3 -->
+      <div class="folder-item">
+        <div class="folder-icon">
+          <div class="folder-tab"></div>
+          <div class="folder-back"></div>
+          <div class="folder-paper"></div>
+          <div class="folder-front">
+            <div class="folder-flap"></div>
+          </div>
+        </div>
+        <div class="folder-name">Social Media SOP</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/navbar.js"></script>
+  <script>
+    // Dynamic title based on URL parameter
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const cat = urlParams.get('cat');
+      
+      if (cat) {
+        // Format category name (e.g. front-office -> Front Office)
+        const formattedCat = cat.split('-').map(word => 
+          word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+        
+        document.getElementById('categoryTitle').textContent = formattedCat + ' SOPs';
+      }
+    });
+  </script>
+</body>
+</html>
