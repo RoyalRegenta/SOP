@@ -28,7 +28,7 @@
 }
 
 .logo-section img {
-  height: 80px;
+  height: 120px;
   width: 400px;
   filter: brightness(1.1);
   transition: transform var(--transition-base);
