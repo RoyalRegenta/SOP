@@ -241,64 +241,70 @@
 
   <!-- Main Content - SOP Gallery -->
   <main class="gallery-container">
-    <h2 class="page-title" id="categoryTitle">Front Office SOPs</h2>
+    <h2 class="page-title" id="categoryTitle">Category SOPs</h2>
     
     <div class="folder-grid" id="folderGrid">
-      <!-- Folder 1 -->
-      <div class="folder-item">
-        <div class="folder-icon">
-          <div class="folder-tab"></div>
-          <div class="folder-back"></div>
-          <div class="folder-paper"></div>
-          <div class="folder-front">
-            <div class="folder-flap"></div>
-          </div>
-        </div>
-        <div class="folder-name">Covid_Handbook</div>
-      </div>
-
-      <!-- Folder 2 -->
-      <div class="folder-item">
-        <div class="folder-icon">
-          <div class="folder-tab"></div>
-          <div class="folder-back"></div>
-          <div class="folder-paper"></div>
-          <div class="folder-front">
-            <div class="folder-flap"></div>
-          </div>
-        </div>
-        <div class="folder-name">FOM SOP</div>
-      </div>
-
-      <!-- Folder 3 -->
-      <div class="folder-item">
-        <div class="folder-icon">
-          <div class="folder-tab"></div>
-          <div class="folder-back"></div>
-          <div class="folder-paper"></div>
-          <div class="folder-front">
-            <div class="folder-flap"></div>
-          </div>
-        </div>
-        <div class="folder-name">Social Media SOP</div>
-      </div>
+      <!-- Folders will be generated here by JavaScript -->
     </div>
   </main>
 
   <script src="../js/navbar.js"></script>
   <script>
-    // Dynamic title based on URL parameter
+    // Data structure for folders
+    const categoryData = {
+      'front-office': {
+        title: 'Front Office',
+        folders: ['Covid_Handbook', 'FOM SOP', 'Social Media SOP']
+      },
+      'house-keeping': {
+        title: 'Housekeeping',
+        folders: ['Housekeeping']
+      },
+      'information-technology': { title: 'Information Technology', folders: [] },
+      'finance': { title: 'Finance', folders: [] },
+      'fnb-production': { title: 'FNB Production', folders: [] },
+      'fnb-service': { title: 'FNB Service', folders: [] },
+      'human-resource': { title: 'Human Resource', folders: [] },
+      'sales-marketing': { title: 'Sales & Marketing', folders: [] },
+      'engineering': { title: 'Engineering', folders: [] },
+      'projects': { title: 'Projects', folders: [] },
+      'security': { title: 'Security', folders: [] },
+      'purchase': { title: 'Purchase', folders: [] }
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const cat = urlParams.get('cat');
+      const grid = document.getElementById('folderGrid');
+      const titleEl = document.getElementById('categoryTitle');
       
-      if (cat) {
-        // Format category name (e.g. front-office -> Front Office)
-        const formattedCat = cat.split('-').map(word => 
-          word.charAt(0).toUpperCase() + word.slice(1)
-        ).join(' ');
+      if (cat && categoryData[cat]) {
+        const data = categoryData[cat];
+        titleEl.textContent = data.title + ' SOPs';
         
-        document.getElementById('categoryTitle').textContent = formattedCat + ' SOPs';
+        if (data.folders.length > 0) {
+          data.folders.forEach(folderName => {
+            const folderHtml = `
+              <div class="folder-item">
+                <div class="folder-icon">
+                  <div class="folder-tab"></div>
+                  <div class="folder-back"></div>
+                  <div class="folder-paper"></div>
+                  <div class="folder-front">
+                    <div class="folder-flap"></div>
+                  </div>
+                </div>
+                <div class="folder-name">${folderName}</div>
+              </div>
+            `;
+            grid.insertAdjacentHTML('beforeend', folderHtml);
+          });
+        } else {
+          grid.innerHTML = '<p style="grid-column: 1 / -1; color: var(--gray-500);">No folders available for this category yet.</p>';
+        }
+      } else {
+        titleEl.textContent = 'SOP Gallery';
+        grid.innerHTML = '<p style="grid-column: 1 / -1; color: var(--gray-500);">Please select a category from the menu.</p>';
       }
     });
   </script>
